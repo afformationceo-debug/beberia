@@ -1,0 +1,305 @@
+{
+  "common": {
+    "appName": "베베리아",
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "save": "저장",
+    "cancel": "취소",
+    "confirm": "확인",
+    "delete": "삭제",
+    "edit": "수정",
+    "back": "뒤로",
+    "next": "다음",
+    "search": "검색",
+    "filter": "필터",
+    "sort": "정렬",
+    "viewAll": "전체보기",
+    "noResults": "결과 없음",
+    "login": "로그인",
+    "register": "회원가입",
+    "logout": "로그아웃",
+    "guest": "게스트"
+  },
+  "nav": {
+    "home": "홈",
+    "hospitals": "병원",
+    "services": "서비스",
+    "community": "커뮤니티",
+    "myPage": "마이"
+  },
+  "home": {
+    "hero": {
+      "title": "베베리아와 함께하는\n최고의 한국 의료 경험",
+      "subtitle": "베베리아 커뮤니티 회원 독점 혜택"
+    },
+    "categories": {
+      "title": "카테고리",
+      "plasticSurgery": "성형외과",
+      "ophthalmology": "안과",
+      "dentistry": "치과",
+      "dermatology": "피부과",
+      "orientalMedicine": "한의원"
+    },
+    "featured": {
+      "title": "추천 병원",
+      "subtitle": "베베리아의 신뢰할 수 있는 파트너"
+    },
+    "memberCta": {
+      "title": "베베리아 멤버",
+      "subtitle": "파트너 병원 최대 30% 할인",
+      "button": "지금 가입하기"
+    },
+    "trending": {
+      "title": "인기 시술"
+    },
+    "services": {
+      "title": "부가 서비스",
+      "pickup": "공항 픽업",
+      "translation": "통역",
+      "accommodation": "숙소",
+      "postCare": "사후 관리"
+    },
+    "packages": {
+      "title": "토탈 패키지",
+      "subtitle": "올인원 한국 의료 여행"
+    }
+  },
+  "hospitals": {
+    "title": "병원",
+    "searchPlaceholder": "병원, 시술 검색...",
+    "filters": {
+      "category": "카테고리",
+      "district": "지역",
+      "language": "언어",
+      "priceRange": "가격대",
+      "rating": "평점",
+      "beberiaDiscount": "베베리아 할인"
+    },
+    "sort": {
+      "recommended": "추천순",
+      "highestRated": "평점순",
+      "mostReviewed": "리뷰순",
+      "lowestPrice": "가격순"
+    },
+    "detail": {
+      "procedures": "시술",
+      "doctors": "의사",
+      "reviews": "리뷰",
+      "info": "정보",
+      "bookConsultation": "무료 상담 예약",
+      "operatingHours": "진료시간",
+      "address": "주소",
+      "languages": "지원 언어",
+      "writeReview": "리뷰 작성",
+      "noReviewsYet": "아직 리뷰가 없습니다",
+      "reviewForm": {
+        "title": "제목",
+        "titlePlaceholder": "경험을 요약해주세요",
+        "content": "내용",
+        "contentPlaceholder": "상세한 경험을 공유해주세요...",
+        "overall": "종합",
+        "service": "서비스",
+        "result": "결과",
+        "communication": "의사소통",
+        "facilities": "시설",
+        "submit": "리뷰 등록",
+        "success": "리뷰가 등록되었습니다!",
+        "loginRequired": "리뷰 작성을 위해 로그인해주세요"
+      }
+    },
+    "highlights": {
+      "vietnameseStaff": "베트남어 가능",
+      "gangnam": "강남",
+      "beberiaPartner": "베베리아 파트너"
+    }
+  },
+  "booking": {
+    "title": "예약",
+    "steps": {
+      "procedures": "시술 선택",
+      "schedule": "날짜 & 의사",
+      "services": "부가 서비스",
+      "information": "정보 입력",
+      "review": "확인"
+    },
+    "selectProcedure": "시술 선택",
+    "selectDate": "날짜 선택",
+    "selectDoctor": "의사 선택 (선택사항)",
+    "additionalServices": "부가 서비스",
+    "yourInfo": "예약자 정보",
+    "passportName": "여권상 이름",
+    "phone": "전화번호",
+    "travelDates": "여행 일정",
+    "flightNumber": "항공편명",
+    "promoCode": "프로모션 코드",
+    "apply": "적용",
+    "summary": "예약 요약",
+    "subtotal": "소계",
+    "discount": "할인",
+    "total": "합계",
+    "confirmBooking": "예약 확인",
+    "noProc": "시술을 하나 이상 선택해주세요",
+    "invalidPromo": "유효하지 않은 프로모션 코드",
+    "promoApplied": "프로모션이 적용되었습니다!",
+    "cancelBooking": "예약 취소",
+    "cancelConfirm": "이 예약을 취소하시겠습니까?",
+    "departure": "출발일",
+    "arrival": "도착일",
+    "notes": "메모",
+    "notesPlaceholder": "특별 요청사항...",
+    "noBookings": "예약 내역이 없습니다",
+    "browseHospitals": "병원 둘러보기",
+    "statusHistory": "상태 이력",
+    "confirmation": {
+      "title": "예약 완료!",
+      "bookingNumber": "예약 번호",
+      "nextSteps": "내 예약 보기",
+      "chatRoom": "채팅방 입장",
+      "backToHospital": "병원으로 돌아가기"
+    },
+    "status": {
+      "PENDING": "확인 대기",
+      "CONFIRMED": "확인됨",
+      "SCHEDULED": "예약됨",
+      "IN_PROGRESS": "진행 중",
+      "COMPLETED": "완료",
+      "CANCELLED": "취소됨",
+      "NO_SHOW": "노쇼"
+    }
+  },
+  "services": {
+    "title": "부가 서비스",
+    "pickup": {
+      "title": "공항 픽업",
+      "description": "공항에서 숙소/병원까지 편안한 이동"
+    },
+    "translation": {
+      "title": "통역 서비스",
+      "description": "베트남어-한국어 전문 통역사 동행"
+    },
+    "accommodation": {
+      "title": "숙소",
+      "description": "병원 근처 호텔 & 게스트하우스"
+    },
+    "postCare": {
+      "title": "사후 관리",
+      "description": "시술 후 경과 관찰 및 관리"
+    },
+    "packages": {
+      "title": "토탈 패키지",
+      "description": "병원 + 서비스 올인원 패키지"
+    }
+  },
+  "community": {
+    "title": "커뮤니티",
+    "tabs": {
+      "all": "전체",
+      "qa": "Q&A",
+      "reviews": "후기",
+      "beforeAfter": "전후사진",
+      "tips": "팁"
+    },
+    "writePost": "글쓰기",
+    "likes": "좋아요",
+    "comments": "댓글",
+    "noPosts": "아직 게시글이 없습니다",
+    "writeFirst": "첫 글을 작성해보세요",
+    "writeComment": "댓글을 입력하세요...",
+    "reply": "답글",
+    "submit": "등록",
+    "loginRequired": "로그인이 필요합니다",
+    "noComments": "아직 댓글이 없습니다",
+    "beforeAfterDesc": "한국 의료 전후사진 갤러리",
+    "loginToView": "로그인하여 사진 보기",
+    "qaDesc": "한국 의료 관련 질문과 답변",
+    "askQuestion": "질문하기",
+    "form": {
+      "type": "글 종류",
+      "discussion": "자유토론",
+      "title": "제목",
+      "titlePlaceholder": "제목을 입력하세요",
+      "content": "내용",
+      "contentPlaceholder": "경험을 공유해주세요...",
+      "submit": "게시하기",
+      "success": "게시글이 등록되었습니다!"
+    }
+  },
+  "chat": {
+    "title": "메시지",
+    "aiConsultation": "AI 상담",
+    "aiGreeting": "안녕하세요! 베베리아 AI 어시스턴트입니다. 적합한 병원과 시술을 찾아드리겠습니다.",
+    "aiDesc": "병원, 시술, 가격에 대해 문의하세요",
+    "suggestions": {
+      "rhinoplasty": "코 성형 하고 싶어요",
+      "bestEyeHospital": "좋은 안과 추천해주세요",
+      "priceCompare": "가격 비교"
+    },
+    "inputPlaceholder": "메시지를 입력하세요...",
+    "connectHuman": "상담사 연결",
+    "online": "온라인",
+    "typing": "입력 중...",
+    "recentConversations": "최근 대화",
+    "noConversations": "대화 내역이 없습니다",
+    "startAIChat": "AI 상담을 시작해보세요!",
+    "noMessages": "메시지가 없습니다",
+    "roomType": {
+      "AI_CONSULTATION": "AI 상담",
+      "BOOKING_SUPPORT": "예약 상담",
+      "TRANSLATION": "통역"
+    }
+  },
+  "my": {
+    "title": "마이페이지",
+    "bookings": "내 예약",
+    "favorites": "즐겨찾기",
+    "reviews": "내 리뷰",
+    "membership": "베베리아 멤버십",
+    "settings": "설정",
+    "noReviews": "작성한 리뷰가 없습니다",
+    "browseHospitals": "병원 둘러보기",
+    "memberBadge": {
+      "FREE": "무료",
+      "BEBERIA_MEMBER": "멤버",
+      "BEBERIA_VIP": "VIP"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "로그인",
+      "phoneLabel": "전화번호",
+      "phonePlaceholder": "+84 xxx xxx xxxx",
+      "sendOtp": "OTP 전송",
+      "or": "또는",
+      "withFacebook": "Facebook으로 로그인",
+      "withGoogle": "Google로 로그인",
+      "withZalo": "Zalo로 로그인",
+      "noAccount": "계정이 없으신가요?",
+      "registerLink": "회원가입"
+    },
+    "register": {
+      "title": "회원가입",
+      "nameLabel": "이름",
+      "namePlaceholder": "이름을 입력하세요",
+      "beberiaIdLabel": "베베리아 회원 ID (선택)",
+      "beberiaIdPlaceholder": "베베리아 ID 입력",
+      "submit": "가입하기",
+      "hasAccount": "이미 계정이 있으신가요?",
+      "loginLink": "로그인"
+    },
+    "verify": {
+      "title": "인증",
+      "subtitle": "전화번호로 발송된 OTP를 입력하세요",
+      "otpPlaceholder": "6자리 코드 입력",
+      "verify": "인증하기",
+      "resend": "재전송",
+      "resendIn": "{seconds}초 후 재전송"
+    }
+  },
+  "pricing": {
+    "original": "정가",
+    "discounted": "할인가",
+    "beberiaPrice": "베베리아 가격",
+    "from": "부터",
+    "currency": "₩"
+  }
+}

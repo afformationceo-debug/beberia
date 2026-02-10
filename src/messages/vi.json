@@ -1,0 +1,305 @@
+{
+  "common": {
+    "appName": "Beberia",
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận",
+    "delete": "Xóa",
+    "edit": "Sửa",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "search": "Tìm kiếm",
+    "filter": "Lọc",
+    "sort": "Sắp xếp",
+    "viewAll": "Xem tất cả",
+    "noResults": "Không có kết quả",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "logout": "Đăng xuất",
+    "guest": "Khách"
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "hospitals": "Bệnh viện",
+    "services": "Dịch vụ",
+    "community": "Cộng đồng",
+    "myPage": "Tôi"
+  },
+  "home": {
+    "hero": {
+      "title": "Trải nghiệm y tế Hàn Quốc\ntốt nhất cùng Beberia",
+      "subtitle": "Ưu đãi độc quyền cho thành viên cộng đồng Beberia"
+    },
+    "categories": {
+      "title": "Danh mục",
+      "plasticSurgery": "Phẫu thuật thẩm mỹ",
+      "ophthalmology": "Nhãn khoa",
+      "dentistry": "Nha khoa",
+      "dermatology": "Da liễu",
+      "orientalMedicine": "Y học cổ truyền"
+    },
+    "featured": {
+      "title": "Bệnh viện nổi bật",
+      "subtitle": "Đối tác tin cậy của Beberia"
+    },
+    "memberCta": {
+      "title": "Thành viên Beberia",
+      "subtitle": "Giảm đến 30% tại các bệnh viện đối tác",
+      "button": "Tham gia ngay"
+    },
+    "trending": {
+      "title": "Thủ thuật phổ biến"
+    },
+    "services": {
+      "title": "Dịch vụ hỗ trợ",
+      "pickup": "Đón sân bay",
+      "translation": "Phiên dịch",
+      "accommodation": "Lưu trú",
+      "postCare": "Chăm sóc sau"
+    },
+    "packages": {
+      "title": "Gói y tế trọn gói",
+      "subtitle": "Tất cả trong một chuyến đi Hàn Quốc"
+    }
+  },
+  "hospitals": {
+    "title": "Bệnh viện",
+    "searchPlaceholder": "Tìm bệnh viện, thủ thuật...",
+    "filters": {
+      "category": "Danh mục",
+      "district": "Khu vực",
+      "language": "Ngôn ngữ",
+      "priceRange": "Khoảng giá",
+      "rating": "Đánh giá",
+      "beberiaDiscount": "Ưu đãi Beberia"
+    },
+    "sort": {
+      "recommended": "Đề xuất",
+      "highestRated": "Đánh giá cao nhất",
+      "mostReviewed": "Nhiều đánh giá nhất",
+      "lowestPrice": "Giá thấp nhất"
+    },
+    "detail": {
+      "procedures": "Thủ thuật",
+      "doctors": "Bác sĩ",
+      "reviews": "Đánh giá",
+      "info": "Thông tin",
+      "bookConsultation": "Đặt tư vấn miễn phí",
+      "operatingHours": "Giờ làm việc",
+      "address": "Địa chỉ",
+      "languages": "Ngôn ngữ hỗ trợ",
+      "writeReview": "Viết đánh giá",
+      "noReviewsYet": "Chưa có đánh giá nào",
+      "reviewForm": {
+        "title": "Tiêu đề",
+        "titlePlaceholder": "Tóm tắt trải nghiệm",
+        "content": "Nội dung",
+        "contentPlaceholder": "Chia sẻ trải nghiệm chi tiết...",
+        "overall": "Tổng thể",
+        "service": "Dịch vụ",
+        "result": "Kết quả",
+        "communication": "Giao tiếp",
+        "facilities": "Cơ sở vật chất",
+        "submit": "Gửi đánh giá",
+        "success": "Đánh giá đã được gửi thành công!",
+        "loginRequired": "Vui lòng đăng nhập để đánh giá"
+      }
+    },
+    "highlights": {
+      "vietnameseStaff": "Nhân viên Việt Nam",
+      "gangnam": "Gangnam",
+      "beberiaPartner": "Đối tác Beberia"
+    }
+  },
+  "booking": {
+    "title": "Đặt lịch",
+    "steps": {
+      "procedures": "Chọn thủ thuật",
+      "schedule": "Ngày & Bác sĩ",
+      "services": "Dịch vụ thêm",
+      "information": "Thông tin",
+      "review": "Xác nhận"
+    },
+    "selectProcedure": "Chọn thủ thuật",
+    "selectDate": "Chọn ngày",
+    "selectDoctor": "Chọn bác sĩ (tùy chọn)",
+    "additionalServices": "Dịch vụ bổ sung",
+    "yourInfo": "Thông tin của bạn",
+    "passportName": "Tên trên hộ chiếu",
+    "phone": "Số điện thoại",
+    "travelDates": "Ngày đi - về",
+    "flightNumber": "Số chuyến bay",
+    "promoCode": "Mã khuyến mãi",
+    "apply": "Áp dụng",
+    "summary": "Tóm tắt đặt lịch",
+    "subtotal": "Tạm tính",
+    "discount": "Giảm giá",
+    "total": "Tổng cộng",
+    "confirmBooking": "Xác nhận đặt lịch",
+    "noProc": "Vui lòng chọn ít nhất một thủ thuật",
+    "invalidPromo": "Mã khuyến mãi không hợp lệ",
+    "promoApplied": "Đã áp dụng mã khuyến mãi!",
+    "cancelBooking": "Hủy đặt lịch",
+    "cancelConfirm": "Bạn có chắc muốn hủy đặt lịch này?",
+    "departure": "Ngày về",
+    "arrival": "Ngày đến",
+    "notes": "Ghi chú",
+    "notesPlaceholder": "Yêu cầu đặc biệt...",
+    "noBookings": "Chưa có đặt lịch nào",
+    "browseHospitals": "Tìm bệnh viện",
+    "statusHistory": "Lịch sử trạng thái",
+    "confirmation": {
+      "title": "Đặt lịch thành công!",
+      "bookingNumber": "Mã đặt lịch",
+      "nextSteps": "Xem đặt lịch của tôi",
+      "chatRoom": "Vào phòng chat",
+      "backToHospital": "Quay lại bệnh viện"
+    },
+    "status": {
+      "PENDING": "Chờ xác nhận",
+      "CONFIRMED": "Đã xác nhận",
+      "SCHEDULED": "Đã lên lịch",
+      "IN_PROGRESS": "Đang thực hiện",
+      "COMPLETED": "Hoàn thành",
+      "CANCELLED": "Đã hủy",
+      "NO_SHOW": "Không đến"
+    }
+  },
+  "services": {
+    "title": "Dịch vụ hỗ trợ",
+    "pickup": {
+      "title": "Đón sân bay",
+      "description": "Dịch vụ đưa đón từ sân bay đến khách sạn/bệnh viện"
+    },
+    "translation": {
+      "title": "Phiên dịch",
+      "description": "Phiên dịch viên Việt-Hàn đi cùng"
+    },
+    "accommodation": {
+      "title": "Lưu trú",
+      "description": "Khách sạn & nhà nghỉ gần bệnh viện"
+    },
+    "postCare": {
+      "title": "Chăm sóc sau",
+      "description": "Theo dõi và chăm sóc sau thủ thuật"
+    },
+    "packages": {
+      "title": "Gói trọn gói",
+      "description": "Bệnh viện + dịch vụ với giá ưu đãi"
+    }
+  },
+  "community": {
+    "title": "Cộng đồng",
+    "tabs": {
+      "all": "Tất cả",
+      "qa": "Hỏi & Đáp",
+      "reviews": "Đánh giá",
+      "beforeAfter": "Trước & Sau",
+      "tips": "Mẹo hay"
+    },
+    "writePost": "Viết bài",
+    "likes": "Thích",
+    "comments": "Bình luận",
+    "noPosts": "Chưa có bài viết nào",
+    "writeFirst": "Viết bài đầu tiên",
+    "writeComment": "Viết bình luận...",
+    "reply": "Trả lời",
+    "submit": "Gửi",
+    "loginRequired": "Vui lòng đăng nhập để tiếp tục",
+    "noComments": "Chưa có bình luận",
+    "beforeAfterDesc": "Ảnh trước & sau phẫu thuật tại Hàn Quốc",
+    "loginToView": "Đăng nhập để xem ảnh",
+    "qaDesc": "Hỏi & đáp về y tế Hàn Quốc",
+    "askQuestion": "Đặt câu hỏi",
+    "form": {
+      "type": "Loại bài viết",
+      "discussion": "Thảo luận",
+      "title": "Tiêu đề",
+      "titlePlaceholder": "Nhập tiêu đề bài viết",
+      "content": "Nội dung",
+      "contentPlaceholder": "Chia sẻ trải nghiệm của bạn...",
+      "submit": "Đăng bài",
+      "success": "Bài viết đã được đăng thành công!"
+    }
+  },
+  "chat": {
+    "title": "Tin nhắn",
+    "aiConsultation": "Tư vấn AI",
+    "aiGreeting": "Xin chào! Tôi là trợ lý AI của Beberia. Tôi có thể giúp bạn tìm bệnh viện và thủ thuật phù hợp.",
+    "aiDesc": "Hỏi về bệnh viện, thủ thuật và giá cả",
+    "suggestions": {
+      "rhinoplasty": "Tôi muốn nâng mũi",
+      "bestEyeHospital": "Bệnh viện mắt tốt nhất?",
+      "priceCompare": "So sánh giá"
+    },
+    "inputPlaceholder": "Nhập tin nhắn...",
+    "connectHuman": "Kết nối nhân viên",
+    "online": "Trực tuyến",
+    "typing": "Đang nhập...",
+    "recentConversations": "Cuộc trò chuyện gần đây",
+    "noConversations": "Chưa có cuộc trò chuyện nào",
+    "startAIChat": "Thử tư vấn AI để bắt đầu!",
+    "noMessages": "Chưa có tin nhắn",
+    "roomType": {
+      "AI_CONSULTATION": "Tư vấn AI",
+      "BOOKING_SUPPORT": "Hỗ trợ đặt lịch",
+      "TRANSLATION": "Phiên dịch"
+    }
+  },
+  "my": {
+    "title": "Trang cá nhân",
+    "bookings": "Lịch đặt của tôi",
+    "favorites": "Yêu thích",
+    "reviews": "Đánh giá của tôi",
+    "membership": "Thành viên Beberia",
+    "settings": "Cài đặt",
+    "noReviews": "Chưa có đánh giá nào",
+    "browseHospitals": "Tìm bệnh viện",
+    "memberBadge": {
+      "FREE": "Miễn phí",
+      "BEBERIA_MEMBER": "Thành viên",
+      "BEBERIA_VIP": "VIP"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Đăng nhập",
+      "phoneLabel": "Số điện thoại",
+      "phonePlaceholder": "+84 xxx xxx xxxx",
+      "sendOtp": "Gửi mã OTP",
+      "or": "hoặc",
+      "withFacebook": "Đăng nhập với Facebook",
+      "withGoogle": "Đăng nhập với Google",
+      "withZalo": "Đăng nhập với Zalo",
+      "noAccount": "Chưa có tài khoản?",
+      "registerLink": "Đăng ký ngay"
+    },
+    "register": {
+      "title": "Đăng ký",
+      "nameLabel": "Họ và tên",
+      "namePlaceholder": "Nhập họ và tên",
+      "beberiaIdLabel": "Mã thành viên Beberia (nếu có)",
+      "beberiaIdPlaceholder": "Nhập mã Beberia",
+      "submit": "Đăng ký",
+      "hasAccount": "Đã có tài khoản?",
+      "loginLink": "Đăng nhập"
+    },
+    "verify": {
+      "title": "Xác minh",
+      "subtitle": "Nhập mã OTP đã gửi đến số điện thoại của bạn",
+      "otpPlaceholder": "Nhập mã 6 số",
+      "verify": "Xác minh",
+      "resend": "Gửi lại mã",
+      "resendIn": "Gửi lại sau {seconds}s"
+    }
+  },
+  "pricing": {
+    "original": "Giá gốc",
+    "discounted": "Giá ưu đãi",
+    "beberiaPrice": "Giá Beberia",
+    "from": "Từ",
+    "currency": "₫"
+  }
+}

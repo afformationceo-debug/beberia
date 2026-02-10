@@ -1,0 +1,305 @@
+{
+  "common": {
+    "appName": "Beberia",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "viewAll": "View All",
+    "noResults": "No results",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "guest": "Guest"
+  },
+  "nav": {
+    "home": "Home",
+    "hospitals": "Hospitals",
+    "services": "Services",
+    "community": "Community",
+    "myPage": "My"
+  },
+  "home": {
+    "hero": {
+      "title": "Experience the Best\nKorean Healthcare with Beberia",
+      "subtitle": "Exclusive benefits for Beberia community members"
+    },
+    "categories": {
+      "title": "Categories",
+      "plasticSurgery": "Plastic Surgery",
+      "ophthalmology": "Ophthalmology",
+      "dentistry": "Dentistry",
+      "dermatology": "Dermatology",
+      "orientalMedicine": "Oriental Medicine"
+    },
+    "featured": {
+      "title": "Featured Hospitals",
+      "subtitle": "Trusted Beberia Partners"
+    },
+    "memberCta": {
+      "title": "Beberia Member",
+      "subtitle": "Up to 30% off at partner hospitals",
+      "button": "Join Now"
+    },
+    "trending": {
+      "title": "Trending Procedures"
+    },
+    "services": {
+      "title": "Support Services",
+      "pickup": "Airport Pickup",
+      "translation": "Translation",
+      "accommodation": "Accommodation",
+      "postCare": "Post Care"
+    },
+    "packages": {
+      "title": "Total Packages",
+      "subtitle": "All-in-one Korea Medical Trip"
+    }
+  },
+  "hospitals": {
+    "title": "Hospitals",
+    "searchPlaceholder": "Search hospitals, procedures...",
+    "filters": {
+      "category": "Category",
+      "district": "District",
+      "language": "Language",
+      "priceRange": "Price Range",
+      "rating": "Rating",
+      "beberiaDiscount": "Beberia Discount"
+    },
+    "sort": {
+      "recommended": "Recommended",
+      "highestRated": "Highest Rated",
+      "mostReviewed": "Most Reviewed",
+      "lowestPrice": "Lowest Price"
+    },
+    "detail": {
+      "procedures": "Procedures",
+      "doctors": "Doctors",
+      "reviews": "Reviews",
+      "info": "Info",
+      "bookConsultation": "Book Free Consultation",
+      "operatingHours": "Operating Hours",
+      "address": "Address",
+      "languages": "Languages Supported",
+      "writeReview": "Write a Review",
+      "noReviewsYet": "No reviews yet",
+      "reviewForm": {
+        "title": "Title",
+        "titlePlaceholder": "Summarize your experience",
+        "content": "Content",
+        "contentPlaceholder": "Share your detailed experience...",
+        "overall": "Overall",
+        "service": "Service",
+        "result": "Result",
+        "communication": "Communication",
+        "facilities": "Facilities",
+        "submit": "Submit Review",
+        "success": "Your review has been submitted!",
+        "loginRequired": "Please login to write a review"
+      }
+    },
+    "highlights": {
+      "vietnameseStaff": "Vietnamese Staff",
+      "gangnam": "Gangnam",
+      "beberiaPartner": "Beberia Partner"
+    }
+  },
+  "booking": {
+    "title": "Booking",
+    "steps": {
+      "procedures": "Select Procedures",
+      "schedule": "Date & Doctor",
+      "services": "Add-on Services",
+      "information": "Your Info",
+      "review": "Confirm"
+    },
+    "selectProcedure": "Select Procedure",
+    "selectDate": "Select Date",
+    "selectDoctor": "Select Doctor (Optional)",
+    "additionalServices": "Additional Services",
+    "yourInfo": "Your Information",
+    "passportName": "Passport Name",
+    "phone": "Phone Number",
+    "travelDates": "Travel Dates",
+    "flightNumber": "Flight Number",
+    "promoCode": "Promo Code",
+    "apply": "Apply",
+    "summary": "Booking Summary",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "total": "Total",
+    "confirmBooking": "Confirm Booking",
+    "noProc": "Please select at least one procedure",
+    "invalidPromo": "Invalid promo code",
+    "promoApplied": "Promo applied!",
+    "cancelBooking": "Cancel Booking",
+    "cancelConfirm": "Are you sure you want to cancel this booking?",
+    "departure": "Departure",
+    "arrival": "Arrival",
+    "notes": "Notes",
+    "notesPlaceholder": "Any special requests...",
+    "noBookings": "No bookings yet",
+    "browseHospitals": "Browse Hospitals",
+    "statusHistory": "Status History",
+    "confirmation": {
+      "title": "Booking Confirmed!",
+      "bookingNumber": "Booking Number",
+      "nextSteps": "View My Bookings",
+      "chatRoom": "Go to Chat Room",
+      "backToHospital": "Back to Hospital"
+    },
+    "status": {
+      "PENDING": "Pending",
+      "CONFIRMED": "Confirmed",
+      "SCHEDULED": "Scheduled",
+      "IN_PROGRESS": "In Progress",
+      "COMPLETED": "Completed",
+      "CANCELLED": "Cancelled",
+      "NO_SHOW": "No Show"
+    }
+  },
+  "services": {
+    "title": "Support Services",
+    "pickup": {
+      "title": "Airport Pickup",
+      "description": "Comfortable transfer from airport to hotel/hospital"
+    },
+    "translation": {
+      "title": "Translation",
+      "description": "Professional Vietnamese-Korean interpreter"
+    },
+    "accommodation": {
+      "title": "Accommodation",
+      "description": "Hotels & guesthouses near hospitals"
+    },
+    "postCare": {
+      "title": "Post Care",
+      "description": "Post-procedure monitoring and care"
+    },
+    "packages": {
+      "title": "Total Packages",
+      "description": "Hospital + services all-in-one packages"
+    }
+  },
+  "community": {
+    "title": "Community",
+    "tabs": {
+      "all": "All",
+      "qa": "Q&A",
+      "reviews": "Reviews",
+      "beforeAfter": "Before & After",
+      "tips": "Tips"
+    },
+    "writePost": "Write Post",
+    "likes": "Likes",
+    "comments": "Comments",
+    "noPosts": "No posts yet",
+    "writeFirst": "Write the first post",
+    "writeComment": "Write a comment...",
+    "reply": "Reply",
+    "submit": "Submit",
+    "loginRequired": "Please login to continue",
+    "noComments": "No comments yet",
+    "beforeAfterDesc": "Before & after photos from Korean medical procedures",
+    "loginToView": "Login to view photos",
+    "qaDesc": "Questions & answers about Korean healthcare",
+    "askQuestion": "Ask a Question",
+    "form": {
+      "type": "Post Type",
+      "discussion": "Discussion",
+      "title": "Title",
+      "titlePlaceholder": "Enter post title",
+      "content": "Content",
+      "contentPlaceholder": "Share your experience...",
+      "submit": "Post",
+      "success": "Your post has been published!"
+    }
+  },
+  "chat": {
+    "title": "Messages",
+    "aiConsultation": "AI Consultation",
+    "aiGreeting": "Hello! I'm Beberia's AI assistant. I can help you find the right hospital and procedure.",
+    "aiDesc": "Ask about hospitals, procedures, and prices",
+    "suggestions": {
+      "rhinoplasty": "I want rhinoplasty",
+      "bestEyeHospital": "Best eye hospital?",
+      "priceCompare": "Compare prices"
+    },
+    "inputPlaceholder": "Type a message...",
+    "connectHuman": "Connect to Staff",
+    "online": "Online",
+    "typing": "Typing...",
+    "recentConversations": "Recent Conversations",
+    "noConversations": "No conversations yet",
+    "startAIChat": "Try our AI consultation to get started!",
+    "noMessages": "No messages yet",
+    "roomType": {
+      "AI_CONSULTATION": "AI Consultation",
+      "BOOKING_SUPPORT": "Booking Support",
+      "TRANSLATION": "Translation"
+    }
+  },
+  "my": {
+    "title": "My Page",
+    "bookings": "My Bookings",
+    "favorites": "Favorites",
+    "reviews": "My Reviews",
+    "membership": "Beberia Membership",
+    "settings": "Settings",
+    "noReviews": "No reviews yet",
+    "browseHospitals": "Browse Hospitals",
+    "memberBadge": {
+      "FREE": "Free",
+      "BEBERIA_MEMBER": "Member",
+      "BEBERIA_VIP": "VIP"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "phoneLabel": "Phone Number",
+      "phonePlaceholder": "+84 xxx xxx xxxx",
+      "sendOtp": "Send OTP",
+      "or": "or",
+      "withFacebook": "Login with Facebook",
+      "withGoogle": "Login with Google",
+      "withZalo": "Login with Zalo",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Register"
+    },
+    "register": {
+      "title": "Register",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "beberiaIdLabel": "Beberia Member ID (optional)",
+      "beberiaIdPlaceholder": "Enter Beberia ID",
+      "submit": "Register",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Login"
+    },
+    "verify": {
+      "title": "Verification",
+      "subtitle": "Enter the OTP sent to your phone number",
+      "otpPlaceholder": "Enter 6-digit code",
+      "verify": "Verify",
+      "resend": "Resend",
+      "resendIn": "Resend in {seconds}s"
+    }
+  },
+  "pricing": {
+    "original": "Original",
+    "discounted": "Discounted",
+    "beberiaPrice": "Beberia Price",
+    "from": "From",
+    "currency": "$"
+  }
+}

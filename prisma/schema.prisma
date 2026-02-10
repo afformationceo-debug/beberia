@@ -1,0 +1,715 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ============================================================
+// ENUMS
+// ============================================================
+
+enum UserRole {
+  CUSTOMER
+  HOSPITAL_ADMIN
+  ADMIN
+}
+
+enum Locale {
+  vi
+  ko
+  en
+}
+
+enum MembershipTier {
+  FREE
+  BEBERIA_MEMBER
+  BEBERIA_VIP
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  DEPOSIT_PAID
+  SCHEDULED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum PaymentMethod {
+  STRIPE
+  VNPAY
+  MOMO
+  BANK_TRANSFER
+}
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum ServiceType {
+  AIRPORT_PICKUP
+  TRANSLATION
+  ACCOMMODATION
+  POST_CARE
+}
+
+enum ChatRoomType {
+  AI_CONSULTATION
+  BOOKING_SUPPORT
+  TRANSLATION
+}
+
+enum ChatMessageRole {
+  USER
+  ASSISTANT
+  HOSPITAL_STAFF
+  SYSTEM
+}
+
+enum CommunityPostType {
+  QA
+  REVIEW
+  BEFORE_AFTER
+  DISCUSSION
+  TIP
+}
+
+enum NotificationType {
+  BOOKING_STATUS
+  CHAT_MESSAGE
+  REVIEW_REPLY
+  PROMOTION
+  SYSTEM
+}
+
+enum DiscountType {
+  PERCENTAGE
+  FIXED_AMOUNT
+}
+
+enum HospitalCategory {
+  PLASTIC_SURGERY
+  OPHTHALMOLOGY
+  DENTISTRY
+  DERMATOLOGY
+  ORIENTAL_MEDICINE
+}
+
+// ============================================================
+// USERS & AUTH
+// ============================================================
+
+model User {
+  id              String         @id @default(cuid())
+  email           String?        @unique
+  phone           String?        @unique
+  name            String?
+  avatar          String?
+  role            UserRole       @default(CUSTOMER)
+  locale          Locale         @default(vi)
+  isBeberiaMember Boolean        @default(false)
+  membershipTier  MembershipTier @default(FREE)
+  beberiaId       String?        @unique
+  passportName    String?
+  dateOfBirth     DateTime?
+  nationality     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  accounts             Account[]
+  bookings             Booking[]
+  reviews              Review[]
+  favorites            Favorite[]
+  communityPosts       CommunityPost[]
+  comments             Comment[]
+  chatRoomParticipants ChatRoomParticipant[]
+  chatMessages         ChatMessage[]
+  notifications        Notification[]
+  auditLogs            AuditLog[]
+
+  // Hospital admin relation
+  managedHospital Hospital? @relation("HospitalAdmin")
+
+  @@index([email])
+  @@index([phone])
+  @@index([beberiaId])
+  @@index([membershipTier])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  provider          String // google, facebook, zalo
+  providerAccountId String
+  accessToken       String?
+  refreshToken      String?
+  expiresAt         Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+// ============================================================
+// HOSPITALS & MEDICAL
+// ============================================================
+
+model Hospital {
+  id                 String             @id @default(cuid())
+  slug               String             @unique
+  nameVi             String
+  nameKo             String
+  nameEn             String
+  descriptionVi      String?            @db.Text
+  descriptionKo      String?            @db.Text
+  descriptionEn      String?            @db.Text
+  categories         HospitalCategory[]
+  address            String
+  addressVi          String?
+  district           String?
+  city               String             @default("Seoul")
+  latitude           Float?
+  longitude          Float?
+  phone              String?
+  website            String?
+  operatingHours     Json? // { mon: "09:00-18:00", ... }
+  highlights         Json? // ["vietnamese_staff", "gangnam", ...]
+  ratingAvg          Float              @default(0)
+  reviewCount        Int                @default(0)
+  isFeatured         Boolean            @default(false)
+  isActive           Boolean            @default(true)
+  beberiaPartner     Boolean            @default(false)
+  galleryUrls        String[]
+  thumbnailUrl       String?
+  languagesSupported String[] // ["vi", "ko", "en", "zh"]
+
+  adminId String? @unique
+  admin   User?   @relation("HospitalAdmin", fields: [adminId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  doctors         Doctor[]
+  procedures      Procedure[]
+  bookings        Booking[]
+  reviews         Review[]
+  favorites       Favorite[]
+  media           Media[]
+  servicePackages ServicePackage[]
+  chatRooms       ChatRoom[]
+  promotions      Promotion[]
+
+  @@index([slug])
+  @@index([isFeatured])
+  @@index([beberiaPartner])
+  @@index([ratingAvg])
+  @@index([city, district])
+}
+
+model Doctor {
+  id            String  @id @default(cuid())
+  hospitalId    String
+  nameVi        String
+  nameKo        String
+  nameEn        String
+  specialty     String
+  bioVi         String? @db.Text
+  bioKo         String? @db.Text
+  bioEn         String? @db.Text
+  credentials   Json? // certifications, education, etc.
+  photoUrl      String?
+  ratingAvg     Float   @default(0)
+  reviewCount   Int     @default(0)
+  isActive      Boolean @default(true)
+  displayOrder  Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  hospital Hospital  @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
+  bookings Booking[]
+  reviews  Review[]
+
+  @@index([hospitalId])
+  @@index([specialty])
+}
+
+model ProcedureCategory {
+  id       String  @id @default(cuid())
+  slug     String  @unique
+  nameVi   String
+  nameKo   String
+  nameEn   String
+  icon     String?
+  parentId String?
+  order    Int     @default(0)
+
+  parent   ProcedureCategory?  @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children ProcedureCategory[] @relation("CategoryHierarchy")
+
+  procedures Procedure[]
+
+  @@index([parentId])
+  @@index([slug])
+}
+
+model Procedure {
+  id              String  @id @default(cuid())
+  hospitalId      String
+  categoryId      String?
+  nameVi          String
+  nameKo          String
+  nameEn          String
+  descriptionVi   String? @db.Text
+  descriptionKo   String? @db.Text
+  descriptionEn   String? @db.Text
+  originalPrice   Int // in KRW
+  discountedPrice Int?
+  beberiaPrice    Int?
+  durationMinutes Int?
+  recoveryDays    Int?
+  isPopular       Boolean @default(false)
+  isActive        Boolean @default(true)
+  thumbnailUrl    String?
+  beforeAfterUrls Json? // [{ before: "url", after: "url" }]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  hospital     Hospital           @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
+  category     ProcedureCategory? @relation(fields: [categoryId], references: [id])
+  bookingItems BookingItem[]
+  media        Media[]
+
+  @@index([hospitalId])
+  @@index([categoryId])
+  @@index([isPopular])
+  @@index([originalPrice])
+}
+
+// ============================================================
+// BOOKINGS & PAYMENTS
+// ============================================================
+
+model Booking {
+  id              String        @id @default(cuid())
+  bookingNumber   String        @unique // BB-YYYYMMDD-XXXX
+  userId          String
+  hospitalId      String
+  doctorId        String?
+  status          BookingStatus @default(PENDING)
+  preferredDate   DateTime?
+  preferredTime   String? // "14:00"
+  notes           String?       @db.Text
+  subtotal        Int           @default(0)
+  discountAmount  Int           @default(0)
+  totalAmount     Int           @default(0)
+  arrivalDate     DateTime?
+  departureDate   DateTime?
+  flightNumber    String?
+  promotionId     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user           User                   @relation(fields: [userId], references: [id])
+  hospital       Hospital               @relation(fields: [hospitalId], references: [id])
+  doctor         Doctor?                @relation(fields: [doctorId], references: [id])
+  promotion      Promotion?             @relation(fields: [promotionId], references: [id])
+  items          BookingItem[]
+  services       BookingService[]
+  statusHistory  BookingStatusHistory[]
+  payments       Payment[]
+  chatRoom       ChatRoom?
+  review         Review?
+
+  @@index([userId])
+  @@index([hospitalId])
+  @@index([status])
+  @@index([bookingNumber])
+  @@index([createdAt])
+}
+
+model BookingItem {
+  id          String @id @default(cuid())
+  bookingId   String
+  procedureId String
+  quantity    Int    @default(1)
+  unitPrice   Int
+  totalPrice  Int
+
+  booking   Booking   @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  procedure Procedure @relation(fields: [procedureId], references: [id])
+
+  @@index([bookingId])
+}
+
+model BookingService {
+  id        String      @id @default(cuid())
+  bookingId String
+  serviceId String
+  price     Int
+  details   Json? // specific options for the service
+
+  booking Booking           @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  service AdditionalService @relation(fields: [serviceId], references: [id])
+
+  @@index([bookingId])
+}
+
+model BookingStatusHistory {
+  id        String        @id @default(cuid())
+  bookingId String
+  status    BookingStatus
+  note      String?
+  changedBy String? // userId
+
+  createdAt DateTime @default(now())
+
+  booking Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+
+  @@index([bookingId])
+  @@index([createdAt])
+}
+
+model Payment {
+  id         String        @id @default(cuid())
+  bookingId  String
+  method     PaymentMethod
+  status     PaymentStatus @default(PENDING)
+  amount     Int
+  currency   String        @default("KRW")
+  isDeposit  Boolean       @default(false)
+  externalId String? // Stripe/VNPay payment ID
+  metadata   Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  booking Booking @relation(fields: [bookingId], references: [id])
+
+  @@index([bookingId])
+  @@index([externalId])
+}
+
+// ============================================================
+// SERVICES & PACKAGES
+// ============================================================
+
+model AdditionalService {
+  id            String      @id @default(cuid())
+  type          ServiceType
+  nameVi        String
+  nameKo        String
+  nameEn        String
+  descriptionVi String?     @db.Text
+  descriptionKo String?     @db.Text
+  descriptionEn String?     @db.Text
+  price         Int // base price in KRW
+  options       Json? // available options/variants
+  isActive      Boolean     @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  bookingServices BookingService[]
+  packageItems    ServicePackageItem[]
+
+  @@index([type])
+}
+
+model ServicePackage {
+  id              String  @id @default(cuid())
+  hospitalId      String?
+  nameVi          String
+  nameKo          String
+  nameEn          String
+  descriptionVi   String? @db.Text
+  descriptionKo   String? @db.Text
+  descriptionEn   String? @db.Text
+  originalTotal   Int
+  packagePrice    Int
+  beberiaPrice    Int?
+  thumbnailUrl    String?
+  isActive        Boolean @default(true)
+  isFeatured      Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  hospital Hospital?            @relation(fields: [hospitalId], references: [id])
+  items    ServicePackageItem[]
+
+  @@index([hospitalId])
+  @@index([isFeatured])
+}
+
+model ServicePackageItem {
+  id        String @id @default(cuid())
+  packageId String
+  serviceId String
+
+  package ServicePackage    @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  service AdditionalService @relation(fields: [serviceId], references: [id])
+
+  @@index([packageId])
+}
+
+// ============================================================
+// REVIEWS & COMMUNITY
+// ============================================================
+
+model Review {
+  id                  String   @id @default(cuid())
+  userId              String
+  hospitalId          String
+  doctorId            String?
+  bookingId           String?  @unique
+  rating              Int // 1-5
+  ratingService       Int? // 1-5
+  ratingResult        Int? // 1-5
+  ratingCommunication Int? // 1-5
+  ratingFacilities    Int? // 1-5
+  title               String?
+  content             String   @db.Text
+  beforeImages        String[]
+  afterImages         String[]
+  isVerified          Boolean  @default(false) // verified purchase
+  hospitalReply       String?  @db.Text
+  hospitalReplyAt     DateTime?
+  likeCount           Int      @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user     User     @relation(fields: [userId], references: [id])
+  hospital Hospital @relation(fields: [hospitalId], references: [id])
+  doctor   Doctor?  @relation(fields: [doctorId], references: [id])
+  booking  Booking? @relation(fields: [bookingId], references: [id])
+
+  @@index([userId])
+  @@index([hospitalId])
+  @@index([rating])
+  @@index([createdAt])
+}
+
+model CommunityPost {
+  id           String            @id @default(cuid())
+  userId       String
+  type         CommunityPostType
+  title        String
+  content      String            @db.Text
+  images       String[]
+  likeCount    Int               @default(0)
+  commentCount Int               @default(0)
+  isPinned     Boolean           @default(false)
+  isPublished  Boolean           @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user     User      @relation(fields: [userId], references: [id])
+  comments Comment[]
+
+  @@index([userId])
+  @@index([type])
+  @@index([createdAt])
+  @@index([isPinned])
+}
+
+model Comment {
+  id       String  @id @default(cuid())
+  postId   String
+  userId   String
+  parentId String?
+  content  String  @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  post     CommunityPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user     User          @relation(fields: [userId], references: [id])
+  parent   Comment?      @relation("CommentThread", fields: [parentId], references: [id])
+  children Comment[]     @relation("CommentThread")
+
+  @@index([postId])
+  @@index([userId])
+  @@index([parentId])
+}
+
+// ============================================================
+// CHAT & AI
+// ============================================================
+
+model ChatRoom {
+  id         String       @id @default(cuid())
+  type       ChatRoomType
+  bookingId  String?      @unique
+  hospitalId String?
+  title      String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  booking      Booking?              @relation(fields: [bookingId], references: [id])
+  hospital     Hospital?             @relation(fields: [hospitalId], references: [id])
+  messages     ChatMessage[]
+  participants ChatRoomParticipant[]
+
+  @@index([bookingId])
+  @@index([hospitalId])
+}
+
+model ChatRoomParticipant {
+  id         String   @id @default(cuid())
+  roomId     String
+  userId     String
+  lastReadAt DateTime @default(now())
+
+  room ChatRoom @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  user User     @relation(fields: [userId], references: [id])
+
+  @@unique([roomId, userId])
+  @@index([userId])
+}
+
+model ChatMessage {
+  id           String          @id @default(cuid())
+  roomId       String
+  senderId     String?
+  role         ChatMessageRole @default(USER)
+  content      String          @db.Text
+  translatedVi String?         @db.Text
+  translatedKo String?         @db.Text
+  metadata     Json? // for AI: recommendation cards, etc.
+
+  createdAt DateTime @default(now())
+
+  room   ChatRoom @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  sender User?    @relation(fields: [senderId], references: [id])
+
+  @@index([roomId])
+  @@index([createdAt])
+}
+
+// ============================================================
+// OTHER
+// ============================================================
+
+model Promotion {
+  id             String         @id @default(cuid())
+  code           String         @unique
+  nameVi         String
+  nameKo         String
+  nameEn         String
+  descriptionVi  String?
+  descriptionKo  String?
+  descriptionEn  String?
+  discountType   DiscountType
+  discountValue  Int // percentage or fixed amount
+  minOrderAmount Int?
+  maxDiscount    Int?
+  beberiaOnly    Boolean        @default(false)
+  requiredTier   MembershipTier?
+  hospitalId     String?
+  validFrom      DateTime
+  validTo        DateTime
+  maxUsage       Int?
+  currentUsage   Int            @default(0)
+  isActive       Boolean        @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  hospital Hospital? @relation(fields: [hospitalId], references: [id])
+  bookings Booking[]
+
+  @@index([code])
+  @@index([isActive])
+  @@index([validFrom, validTo])
+}
+
+model Favorite {
+  id         String @id @default(cuid())
+  userId     String
+  hospitalId String
+
+  createdAt DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  hospital Hospital @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, hospitalId])
+  @@index([userId])
+  @@index([hospitalId])
+}
+
+model Notification {
+  id     String           @id @default(cuid())
+  userId String
+  type   NotificationType
+  title  String
+  body   String
+  data   Json? // extra data for routing/context
+  isRead Boolean          @default(false)
+
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([isRead])
+  @@index([createdAt])
+}
+
+model Media {
+  id          String  @id @default(cuid())
+  url         String
+  altText     String?
+  entityType  String // "hospital", "procedure", "review", "post"
+  entityId    String
+  order       Int     @default(0)
+  hospitalId  String?
+  procedureId String?
+
+  createdAt DateTime @default(now())
+
+  hospital  Hospital?  @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
+  procedure Procedure? @relation(fields: [procedureId], references: [id], onDelete: Cascade)
+
+  @@index([entityType, entityId])
+  @@index([hospitalId])
+  @@index([procedureId])
+}
+
+model AuditLog {
+  id       String @id @default(cuid())
+  userId   String?
+  action   String // "CREATE", "UPDATE", "DELETE"
+  entity   String // model name
+  entityId String
+  changes  Json? // { field: { old: x, new: y } }
+
+  createdAt DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([entity, entityId])
+  @@index([userId])
+  @@index([createdAt])
+}

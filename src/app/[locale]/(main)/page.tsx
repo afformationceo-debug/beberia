@@ -76,28 +76,42 @@ function HomeContent({
 
   return (
     <MobileContainer noPadding>
-      {/* Hero Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/80 px-6 pb-16 pt-12 text-primary-foreground">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoNnptMC0zMHY2aC02VjRoNnptMCAxMnY2aC02VjE2aDZ6bTAgMTJ2Nmgt NlYyOGg2eiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
-        <div className="relative">
-          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs backdrop-blur-sm">
-            <Star className="h-3 w-3 fill-amber-300 text-amber-300" />
+      {/* Hero Banner with Video Background */}
+      <section className="relative overflow-hidden h-[420px] text-white">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+          poster=""
+        >
+          <source src="/asset_ok3hra47b_1770713912114.mp4" type="video/mp4" />
+        </video>
+        {/* Dark gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+        {/* Additional bottom gradient for smooth transition */}
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
+        {/* Content */}
+        <div className="relative flex h-full flex-col justify-end px-6 pb-10">
+          <div className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium backdrop-blur-md">
+            <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
             <span>Trusted by 10,000+ Vietnamese</span>
           </div>
-          <h2 className="text-2xl font-bold leading-tight">
+          <h2 className="text-[28px] font-extrabold leading-[1.15] tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
             {t("hero.title")}
           </h2>
-          <p className="mt-2.5 text-sm leading-relaxed opacity-90">{t("hero.subtitle")}</p>
-          <Button variant="secondary" className="mt-5 gap-1.5 font-semibold shadow-lg" asChild>
+          <p className="mt-3 max-w-[280px] text-sm leading-relaxed text-white/85 drop-shadow-[0_1px_4px_rgba(0,0,0,0.4)]">
+            {t("hero.subtitle")}
+          </p>
+          <Button className="mt-5 w-fit gap-2 rounded-full bg-white px-6 font-bold text-black shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-200 hover:bg-white/90 hover:shadow-[0_6px_24px_rgba(0,0,0,0.4)] hover:scale-[1.02]" asChild>
             <Link href="/hospitals">
               {tc("search")}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
         </div>
-        {/* Decorative elements */}
-        <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-white/5" />
-        <div className="absolute -top-4 -right-4 h-20 w-20 rounded-full bg-white/5" />
       </section>
 
       {/* Categories */}
